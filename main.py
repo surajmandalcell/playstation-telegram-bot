@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# pylint: disable=unused-argument, wrong-import-position
 import os
 from dotenv import load_dotenv
 import logging
