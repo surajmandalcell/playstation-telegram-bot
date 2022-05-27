@@ -6,6 +6,8 @@ import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler
 
+from utils.fs import object_dump
+
 load_dotenv()
 
 telegram_key = os.environ.get("TELEGRAM_KEY")
@@ -29,6 +31,7 @@ async def game_search(update: Update, context: CallbackContext.DEFAULT_TYPE):
         f"https://platprices.com/api.php?key={platprices_key}&name={game}"
     )
     print(data.json())
+    object_dump(data.json())
     await context.bot.send_message(
         chat_id=update.effective_chat.id, text=f"Details for {game}"
     )
